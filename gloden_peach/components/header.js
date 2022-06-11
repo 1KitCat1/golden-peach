@@ -4,8 +4,11 @@ import styled from "styled-components"
 const Header = () => {
     return (
         <Wrapper>
-            <ButtonBlue>Buy | Sell</ButtonBlue>
-            <Button>Send | Receive</Button>
+            <Title>Assets</Title>
+            <FlexContainer>
+                <ButtonBlue>Buy | Sell</ButtonBlue>
+                <Button>Send | Receive</Button>
+            </FlexContainer>
         </Wrapper>
         
     )
@@ -24,8 +27,8 @@ const Wrapper = styled.div`
 const Button = styled.div`
   border: 3px solid #282b2f;
   background-color: #262526;
-  padding: 0.8rem;
-  font-size: 1.3rem;
+  padding: 0.5rem;
+  font-size: 1.1rem;
   font-weight: 500;
   border-radius: 0.4rem;
   margin-right: 1rem;
@@ -37,8 +40,8 @@ const Button = styled.div`
 
 const ButtonBlue = styled.div`
   border: 1px solid #282b2f;
-  padding: 0.8rem;
-  font-size: 1.3rem;
+  padding: 0.5rem;
+  font-size: 1.1rem;
   font-weight: 500;
   border-radius: 0.4rem;
   margin-right: 1rem;
@@ -47,4 +50,13 @@ const ButtonBlue = styled.div`
   &:hover {
     cursor: pointer;
   }
+`
+const FlexContainer = styled.div`
+    display: flex;
+`
+const Title = styled.div`
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: white;
+  flex: 1;
 `
