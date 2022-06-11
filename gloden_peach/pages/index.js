@@ -5,8 +5,10 @@ export default function Home() {
   const { address, connectWallet} = useWeb3();
 
   return (
+
     <WrapperDiv>
       <Button onClick={() => connectWallet('injected')}>Connect Wallet</Button>
+      <Details>Connect your Metamask wallet to authorize</Details>
     </WrapperDiv>
   )
 }
