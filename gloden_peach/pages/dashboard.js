@@ -1,18 +1,22 @@
 import React from 'react'
 import Header from '../components/header'
 import styled from 'styled-components'
+import Main from '../components/main'
+import Sidebar from '../components/sidebar'
 
 const Dashboard = ({address}) => {
     return (
     <Wrapper>
+        <Sidebar/>
         <MainContainer>
             <Header/>
+            <Main/>
         </MainContainer>
     </Wrapper>
     )
 }
 
-export default Dashboard;
+export default Dashboard;   
 
 const Wrapper = styled.div`
     display: flex;
