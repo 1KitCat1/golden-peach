@@ -1,15 +1,23 @@
 import styled from 'styled-components'
 import { useWeb3 } from '@3rdweb/hooks'
+import Dashboard from './dashboard';
 
 export default function Home() {
   const { address, connectWallet} = useWeb3();
 
   return (
-
     <WrapperDiv>
-      <Button onClick={() => connectWallet('injected')}>Connect Wallet</Button>
-      <Details>Connect your Metamask wallet to authorize</Details>
-    </WrapperDiv>
+    {address ? (
+      <Dashboard address={address} />
+    ) : (
+      <WalletConnect>
+        <Button onClick={() => connectWallet('injected')}>
+          Connect Wallet
+        </Button>
+        <Details>Connect your Metamask wallet to authorize</Details>
+      </WalletConnect>
+    )}
+  </WrapperDiv>
   )
 }
 
@@ -45,9 +53,9 @@ const Button = styled.div`
 `
 
 const Details = styled.div`
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   text-align: center;
   margin-top: 1rem;
-  font-weight: 500;
-  color: #282b2f;
+  font-weight: 600;
+  color: #585b3f;
 `
