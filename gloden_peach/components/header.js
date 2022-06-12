@@ -10,12 +10,11 @@ const Header = ({walletAddress, connectWallet}) => {
                   <WalletLinkTitle>Wallet Connected</WalletLinkTitle>
                   <WalletAddress>{walletAddress.slice(0, 7)}...{walletAddress.slice(35)}</WalletAddress>
                 </WalletLink>
-                <ButtonYellow>Send | Receive</ButtonYellow>
+                <Button style={{backgroundColor: '#f6da00', color: '#000'}}>Send | Receive</Button>
                 <Button>Buy | Sell</Button>
             </FlexContainer>
         </Wrapper>
-        
-    )
+        )
 }
 export default Header
 
@@ -29,9 +28,9 @@ const Wrapper = styled.div`
 `
 
 const Button = styled.div`
-  border: 3px solid #f6da00;
+  border: 1px solid #f6da00;
   padding: 0.5rem;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 500;
   border-radius: 0.4rem;
   margin-right: 1rem;
@@ -41,19 +40,6 @@ const Button = styled.div`
   }
 `
 
-const ButtonYellow = styled.div`
-  border: 1px solid #282b2f;
-  padding: 0.5rem;
-  font-size: 1.1rem;
-  font-weight: 500;
-  border-radius: 0.4rem;
-  margin-right: 1rem;
-  background-color: #f6da00;
-  color: black;
-  &:hover {
-    cursor: pointer;
-  }
-`
 const FlexContainer = styled.div`
     display: flex;
 `

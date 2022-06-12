@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import styled from 'styled-components'
-import PeachLogo from '../crypto_assets/peach.png'
+import PeachLogo from '../crypto_assets/peach1.png'
 import Image from 'next/image'
 
 import { navItems } from '../static/navItems'

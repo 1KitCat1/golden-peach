@@ -71,6 +71,7 @@ const Content = styled.div`
 `
 
 const Chart = styled.div`
+  max-width: 70%;
   border: 1px solid #282b2f;
   padding: 1rem 2rem;
 `
