@@ -14,7 +14,7 @@ export default function Home() {
         <Button onClick={() => connectWallet('injected')}>
           Connect Wallet
         </Button>
-        <Details>Connect your Metamask wallet to authorize</Details>
+        <Details>(Connect your Metamask wallet to authorize)</Details>
       </WalletConnect>
     )}
   </WrapperDiv>
@@ -57,5 +57,5 @@ const Details = styled.div`
   text-align: center;
   margin-top: 1rem;
   font-weight: 600;
-  color: #585b3f;
+  color: #d3c8c5;
 `
