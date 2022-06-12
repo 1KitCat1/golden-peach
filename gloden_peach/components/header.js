@@ -6,7 +6,7 @@ const Header = ({walletAddress, connectWallet}) => {
         <Wrapper>
             <Title>Assets</Title>
             <FlexContainer>
-                <WalletLink>
+                <WalletLink title={walletAddress}>
                   <WalletLinkTitle>Wallet Connected</WalletLinkTitle>
                   <WalletAddress>{walletAddress.slice(0, 7)}...{walletAddress.slice(35)}</WalletAddress>
                 </WalletLink>
