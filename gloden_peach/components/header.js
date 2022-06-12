@@ -10,8 +10,8 @@ const Header = ({walletAddress, connectWallet}) => {
                   <WalletLinkTitle>Wallet Connected</WalletLinkTitle>
                   <WalletAddress>{walletAddress.slice(0, 7)}...{walletAddress.slice(35)}</WalletAddress>
                 </WalletLink>
-                <ButtonBlue>Buy | Sell</ButtonBlue>
-                <Button>Send | Receive</Button>
+                <ButtonYellow>Send | Receive</ButtonYellow>
+                <Button>Buy | Sell</Button>
             </FlexContainer>
         </Wrapper>
         
@@ -29,27 +29,26 @@ const Wrapper = styled.div`
 `
 
 const Button = styled.div`
-  border: 3px solid #282b2f;
-  background-color: #262526;
+  border: 3px solid #f6da00;
   padding: 0.5rem;
   font-size: 1.1rem;
   font-weight: 500;
   border-radius: 0.4rem;
   margin-right: 1rem;
-  color: white;
+  color: #f6da00;
   &:hover {
     cursor: pointer;
   }
 `
 
-const ButtonBlue = styled.div`
+const ButtonYellow = styled.div`
   border: 1px solid #282b2f;
   padding: 0.5rem;
   font-size: 1.1rem;
   font-weight: 500;
   border-radius: 0.4rem;
   margin-right: 1rem;
-  background-color: #3773f5;
+  background-color: #f6da00;
   color: black;
   &:hover {
     cursor: pointer;

@@ -3,11 +3,13 @@ import { BsThreeDotsVertical } from 'react-icons/bs'
 import styled from 'styled-components'
 import { coins } from '../static/coins'
 import Coin from './coin'
+import BalanceChart from './balance'
 
 const Portfolio = () => {
     return ( 
     <Wrapper>
       <Content>
+        <BalanceChart/>
         <PortfolioTable>
             <TableItem>
                 <Title>Your Assets</Title>
@@ -53,7 +55,7 @@ const Wrapper = styled.div`
 
 const Content = styled.div`
   width: 100%;
-  max-width: 1000px;
+  max-width: 98%;
   padding: 2rem 1rem;
 `
 
