@@ -1,11 +1,13 @@
 import React from 'react'
 import Portfolio from './portfolio'
 import styled from 'styled-components'
+import News from './newsbar'
 
 const Main = () => {
     return (
         <Wrapper>
-            <Portfolio/>
+          <Portfolio/>
+          <News/>
         </Wrapper>
     )
 }
