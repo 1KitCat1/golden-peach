@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { coins } from '../static/coins'
 import Coin from './coin'
 import BalanceChart from './balance'
+import News from './newsbar'
 
 const Portfolio = () => {
     return ( 
@@ -71,7 +72,6 @@ const Content = styled.div`
 `
 
 const Chart = styled.div`
-  max-width: 70%;
   border: 1px solid #282b2f;
   padding: 1rem 2rem;
 `

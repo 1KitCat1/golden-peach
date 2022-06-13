@@ -45,7 +45,7 @@ const Button = styled.div`
   font-size: 1.3rem;
   font-weight: 500;
   border-radius: 0.4rem;
-  background-color: #3773f5;
+  background-color: #f6da00;
   color: #000;
   &:hover {
     cursor: pointer;
