@@ -7,7 +7,7 @@ import Sidebar from '../components/sidebar'
 const Dashboard = ({address}) => {
     return (
     <Wrapper>
-        <Sidebar/>
+        <Sidebar walletAddress={address}/>
         <MainContainer>
             <Header walletAddress={address}/>
             <Main/>
