@@ -1,7 +1,30 @@
 import styled from "styled-components"
+import Modal from 'react-modal'
+import TransferModal from './modal/transfer'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 
+Modal.setAppElement('#__next')
 
 const Header = ({walletAddress, connectWallet}) => {
+  const router = useRouter()
+
+  const customStyles = {
+    content: {
+      top: '40%',
+      bottom: 'auto',
+      left: '40%',
+      right: 'auto',      
+      transform: 'translate(-50%, -50%)',
+      backgroundColor: '#0a0a0a',
+      padding: 0,
+      border: 'none',
+    },
+    overlay: {
+      backgroundColor: 'rgba(10, 10, 10, 0.7)',
+    },
+  }
+
     return (
         <Wrapper>
             <Title>Assets</Title>
@@ -10,9 +33,20 @@ const Header = ({walletAddress, connectWallet}) => {
                   <WalletLinkTitle>Wallet Connected</WalletLinkTitle>
                   <WalletAddress>{walletAddress.slice(0, 7)}...{walletAddress.slice(35)}</WalletAddress>
                 </WalletLink>
-                <Button style={{backgroundColor: '#f6da00', color: '#000'}}>Send | Receive</Button>
-                <Button>Buy | Sell</Button>
+                <Link href={'/?transfer=1'}>
+                  <Button style={{backgroundColor: '#f6da00', color: '#000'}}>Send | Receive</Button>
+                </Link>
+                <Link href={'/?transfer=1'}>
+                  <Button>Buy | Sell</Button>
+                </Link>
             </FlexContainer>
+            <Modal
+            isOpen={!!router.query.transfer}
+            onRequestClose={() => router.push('/')}
+            style={customStyles}
+            >
+              <TransferModal/>
+            </Modal>
         </Wrapper>
         )
 }
