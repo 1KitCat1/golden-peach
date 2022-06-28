@@ -1,14 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const TransferModal = () => {
+    const [action, setAction] = useState('send')
+
+    const selectedButtonStyle = {
+        color: "#f6da00"
+    }
+    const defaultButtonStyle = {
+        border: '1px solid #282b2f'
+    }
     return (
         <Wrapper>
             <FlexContainer>
-                <ButtonSelector>
+                <ButtonSelector 
+                    style={ action === 'send' ? selectedButtonStyle : defaultButtonStyle}
+                    onClick={() => setAction('send')}
+                >
                     <p>Send</p>
                 </ButtonSelector>
-                <ButtonSelector>
+
+                <ButtonSelector 
+                    style={ action === 'receive' ? selectedButtonStyle : defaultButtonStyle}
+                    onClick={() => setAction('receive')}
+                >
                     <p>Receive</p>
                 </ButtonSelector>
             </FlexContainer>
@@ -36,7 +51,7 @@ const ButtonSelector = styled.div`
   width: 100%;
   display: grid;
   place-items: center;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 600;
   &:hover {
     cursor: pointer;
