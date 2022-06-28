@@ -11,17 +11,17 @@ const Header = ({walletAddress, connectWallet}) => {
 
   const customStyles = {
     content: {
-      top: '40%',
+      top: '50%',
       bottom: 'auto',
-      left: '40%',
+      left: '50%',
       right: 'auto',      
       transform: 'translate(-50%, -50%)',
-      backgroundColor: '#0a0a0a',
+      backgroundColor: '#1a1a1a',
       padding: 0,
       border: 'none',
     },
     overlay: {
-      backgroundColor: 'rgba(10, 10, 10, 0.7)',
+      backgroundColor: 'rgba(26, 26, 26, 0.7)',
     },
   }
 
