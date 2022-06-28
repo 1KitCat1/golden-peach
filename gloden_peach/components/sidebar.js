@@ -2,10 +2,11 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import PeachLogo from '../crypto_assets/peach1.png'
 import Image from 'next/image'
+import Link from 'next/link';
 
 import { navItems } from '../static/navItems'
 
-const Sidebar = () => {
+const Sidebar = (walletAddress) => {
   const [activeIcon, setActiveIcon] = useState(navItems[0].title)
 
   return (
@@ -17,12 +18,17 @@ const Sidebar = () => {
       </LogoContainer>
       <NavItemsContainer>
         {navItems.map(item => (
-          <NavItem key={item.title} onClick={() => setActiveIcon(item.title)}>
-            <NavIcon style={{ color: item.title === activeIcon && '#f6da00' }}>
-              {item.icon}
-            </NavIcon>
-            <NavTitle>{item.title}</NavTitle>
-          </NavItem>
+          <Link href={{
+            pathname: item.link,
+            query: walletAddress,
+            }}>
+            <NavItem key={item.title} onClick={() => setActiveIcon(item.title)}>
+              <NavIcon style={{ color: item.title === activeIcon && '#f6da00' }}>
+                {item.icon}
+              </NavIcon>
+              <NavTitle>{item.title}</NavTitle>
+            </NavItem>
+          </Link>
         ))}
       </NavItemsContainer>
     </Wrapper>
