@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import styled  from "styled-components";
+import { FaWallet } from "react-icons/fa"
+import Image from "next/image"
+import PeachLogo from '../../crypto_assets/peach1.png'
 
 const Send = () => {
     const [amount, setAmount] = useState()
+    const [recipientAddress, setRecipientAddress] = useState()
+    const imgageA = '../../crypto_assets/peach1.png'
     return (
     <Wrapper>
         <Warning style={{opacity: amount && '0'}}>
@@ -22,8 +27,27 @@ const Send = () => {
         <TransferLine>
             <Row>
                 <FieldName>To</FieldName>
+                <Icon><FaWallet/></Icon>
+                <RecipientAddress
+                placeholder='Address'
+                value={recipientAddress}
+                onChange={val => setRecipientAddress(val.target.value)}
+                />
+            </Row>
+            <Divider />
+            <Row>
+                <FieldName>Token</FieldName>
+                <CoinSelectList>
+                    <Icon>
+                        <img src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNUY--qh08i0znO3w4uwOuwIr2f1PqVFpTuA&usqp=CAU'} alt={""}></img>
+                    </Icon>
+                    <CoinName>Bitcoin</CoinName>
+                </CoinSelectList>
             </Row>
         </TransferLine>
+        <Row>
+            <SendButton>Send</SendButton>
+        </Row>
     </Wrapper>
     )
 }
@@ -52,7 +76,6 @@ const FlexInputContainer = styled.div`
     color: #3773f5;
   }
 `
-
 const FlexInput = styled.input`
   border: none;
   background: none;
@@ -70,7 +93,6 @@ const FlexInput = styled.input`
     -webkit-appearance: none;
   }
 `
-
 const Warning = styled.div`
   padding: 1rem 0 2rem 0;
   text-align: center;
@@ -114,20 +136,42 @@ const RecipientAddress = styled.input`
   margin-right: 0.5rem;
 `
 
-const ContinueButton = styled.button`
-  color: white;
+const SendButton = styled.button`
+  color: 1a1b1d;
   width: 100%;
-  background-color: #3773f5;
+  background-color: #f6da00;
   padding: 1rem;
   text-align: center;
   border-radius: 0.4rem;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
+  font-weight: 600;
   &:hover {
     cursor: pointer;
-    background-color: #4a80f6;
+    background-color: #f0ca00;
   }
 `
 const TransferLine = styled.div`
   border: 1px solid #282b2f;
   border-radius: 0.4rem;
+`
+const Divider = styled.div`
+  border-bottom: 1px solid #282b2f;
+`
+const CoinSelectList = styled.div`
+  display: flex;
+  flex: 2;
+  height: 100%;
+  &:hover {
+    cursor: pointer;
+  }
+`
+const CoinName = styled.div`
+  flex: 1;
+  border: none;
+  background: none;
+  outline: none;
+  color: white;
+  font-size: 1.2rem;
+  text-wrap: wrap;
+  margin-right: 0.5rem;
 `
