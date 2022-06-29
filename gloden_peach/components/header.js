@@ -3,6 +3,7 @@ import Modal from 'react-modal'
 import TransferModal from './modal/transfer'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import Head from 'next/head'
 
 Modal.setAppElement('#__next')
 
@@ -27,6 +28,9 @@ const Header = ({walletAddress, connectWallet}) => {
 
     return (
         <Wrapper>
+            <Head>
+              <title>Golden Peach</title>
+            </Head>
             <Title>Assets</Title>
             <FlexContainer>
                 <WalletLink title={walletAddress}>
