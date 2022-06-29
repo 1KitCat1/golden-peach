@@ -17,10 +17,13 @@ const Send = () => {
                     onChange={val => setAmount(val.target.value)}
                 />
                 <span>ETH</span>
-                
             </FlexInputContainer>
-            
         </Amount>
+        <TransferLine>
+            <Row>
+                <FieldName>To</FieldName>
+            </Row>
+        </TransferLine>
     </Wrapper>
     )
 }
@@ -72,4 +75,59 @@ const Warning = styled.div`
   padding: 1rem 0 2rem 0;
   text-align: center;
   color: #8a919e;
+`
+const Row = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #8a919e;
+  padding: 1rem 0;
+  font-size: 1.2rem;
+`
+const FieldName = styled.div`
+  flex: 0.5;
+  padding-left: 2rem;
+`
+const Icon = styled.div`
+  margin-right: 1rem;
+  height: 1.8rem;
+  width: 1.8rem;
+  border-radius: 50%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  & > img {
+    /* margin: -0.5rem 1rem; */
+    height: 120%;
+    width: 120%;
+    object-fit: cover;
+  }
+`
+const RecipientAddress = styled.input`
+  flex: 1;
+  border: none;
+  background: none;
+  outline: none;
+  color: white;
+  font-size: 1.2rem;
+  text-wrap: wrap;
+  margin-right: 0.5rem;
+`
+
+const ContinueButton = styled.button`
+  color: white;
+  width: 100%;
+  background-color: #3773f5;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 0.4rem;
+  font-size: 1.2rem;
+  &:hover {
+    cursor: pointer;
+    background-color: #4a80f6;
+  }
+`
+const TransferLine = styled.div`
+  border: 1px solid #282b2f;
+  border-radius: 0.4rem;
 `
