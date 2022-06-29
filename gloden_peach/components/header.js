@@ -60,7 +60,7 @@ const Wrapper = styled.div`
   width: calc(100%);
   padding: 1rem 1.5rem;
   border-bottom: 1px solid #282b2f;
-  background-color: #1a1b1d;
+  background-color: #0a0b0d;
   display: flex;
   align-items: center;
 `
