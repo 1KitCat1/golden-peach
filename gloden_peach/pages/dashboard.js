@@ -29,4 +29,5 @@ const Wrapper = styled.div`
 
 const MainContainer = styled.div`
     flex: 1;
+    background: linear-gradient(45deg, #1a1a1a, #000000);
 `
