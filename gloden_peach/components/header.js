@@ -36,7 +36,7 @@ const Header = ({walletAddress, connectWallet}) => {
                 <Link href={'/?transfer=1'}>
                   <Button style={{backgroundColor: '#f6da00', color: '#000'}}>Send | Receive</Button>
                 </Link>
-                <Link href={'/?transfer=1'}>
+                <Link href={{query: '/?transfer=1'}}>
                   <Button>Buy | Sell</Button>
                 </Link>
             </FlexContainer>

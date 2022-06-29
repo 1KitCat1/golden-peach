@@ -7,21 +7,21 @@ const News = () => {
         <Title>Bitcoin drops 14%</Title>
         <Description>Bitcoin hitting its lowest level since December 2020</Description>
         <Placeholder />
-        <Additional style={{ color: '#3773f5' }}><a target={'_blank'} href='https://www.cnbc.com/2022/06/13/bitcoin-btc-falls-as-market-focuses-on-celsius-issue-fed-rate-hike.html'>Read full article</a></Additional>
+        <Additional style={{ color: '#3773f5' }}><a target={'_blank'} href='https://www.cnbc.com/2022/06/13/bitcoin-btc-falls-as-market-focuses-on-celsius-issue-fed-rate-hike.html' rel="noreferrer">Read full article</a></Additional>
       </NewsBlock>
 
       <NewsBlock>
         <Title>NEAR Protocol</Title>
         <Description>Despite showing network growth, why is its token ‘NEAR’ the bottom</Description>
         <Placeholder />
-        <Additional style={{ color: '#3773f5' }}><a target={'_blank'} href='https://ambcrypto.com/near-protocol-despite-showing-network-growth-why-is-its-token-near-the-bottom/'>Read full article</a></Additional>
+        <Additional style={{ color: '#3773f5' }}><a target={'_blank'} href='https://ambcrypto.com/near-protocol-despite-showing-network-growth-why-is-its-token-near-the-bottom/' rel="noreferrer">Read full article</a></Additional>
       </NewsBlock>
 
       <NewsBlock>
         <Title>Mastercard and NFT</Title>
         <Description>Mastercard to Enable Direct NFT Payment Options</Description>
         <Placeholder />
-        <Additional style={{ color: '#3773f5' }}><a target={'_blank'} href='https://cryptonews.com/news/mastercard-will-enable-direct-nft-payment-options-for-marketplace-operators.htm'>Read full article</a></Additional>
+        <Additional style={{ color: '#3773f5' }}><a target={'_blank'} href='https://cryptonews.com/news/mastercard-will-enable-direct-nft-payment-options-for-marketplace-operators.htm' rel="noreferrer">Read full article</a></Additional>
       </NewsBlock>
     </Wrapper>
   )

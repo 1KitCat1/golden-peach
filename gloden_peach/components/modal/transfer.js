@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import Send from './send'
+
 
 const TransferModal = () => {
     const [action, setAction] = useState('send')
@@ -9,6 +11,11 @@ const TransferModal = () => {
     }
     const defaultButtonStyle = {
         border: '1px solid #282b2f'
+    }
+    const selectedModal = () => {
+        if(action == "send"){
+            return <Send/>
+        }
     }
     return (
         <Wrapper>
@@ -27,6 +34,9 @@ const TransferModal = () => {
                     <p>Receive</p>
                 </ButtonSelector>
             </FlexContainer>
+            <ModalWindow>
+                {selectedModal()}
+            </ModalWindow>
         </Wrapper>
     )
 }
@@ -57,4 +67,8 @@ const ButtonSelector = styled.div`
     cursor: pointer;
     background-color: #222325;
   }
+`
+const ModalWindow = styled.div`
+  flex: 1;
+  padding: 1rem;
 `

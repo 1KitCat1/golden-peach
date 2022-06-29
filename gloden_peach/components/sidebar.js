@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import { useState } from 'react'
 import styled from 'styled-components'
 import PeachLogo from '../crypto_assets/peach1.png'
