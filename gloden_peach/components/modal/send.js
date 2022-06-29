@@ -15,13 +15,13 @@ const Send = () => {
         </Warning> 
         <Amount> 
             <FlexInputContainer>
-                <FlexInput 
-                    type='number'
-                    placeholder="0"
-                    value={amount} 
-                    onChange={val => setAmount(val.target.value)}
-                />
-                <span>ETH</span>
+              <FlexInput
+                placeholder='0'
+                type='number'
+                value={amount}
+                onChange={e => setAmount(e.target.value)}
+              />
+              <span style={{ color: '#f6da00' }}>ETH</span>
             </FlexInputContainer>
         </Amount>
         <TransferLine>
@@ -62,9 +62,9 @@ const Wrapper = styled.div`
     overflow: hidden;
 `
 const Amount = styled.div`
-    display: flex;
-    flex-direction: cloumn;
-    flex: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 `
 const FlexInputContainer = styled.div`
   flex: 1;
@@ -76,6 +76,7 @@ const FlexInputContainer = styled.div`
     color: #3773f5;
   }
 `
+
 const FlexInput = styled.input`
   border: none;
   background: none;
@@ -84,15 +85,16 @@ const FlexInput = styled.input`
   font-size: 1.2rem;
   text-wrap: wrap;
   text-align: right;
-  max-width: 18%;
-  margin-right: 0.2rem;
-  font-size: 4rem;
-  color: #3773f5;
+  max-width: 45%;
+  margin-right: 1rem;
+  font-size: 4.5rem;
+  color: gainsboro;
   &::-webkit-outer-spin-button,
   ::-webkit-inner-spin-button {
     -webkit-appearance: none;
   }
 `
+
 const Warning = styled.div`
   padding: 1rem 0 2rem 0;
   text-align: center;
