@@ -29,6 +29,8 @@ const WrapperDiv = styled.div`
   color: white;
   display: grid;
   place-items: center;
+  background-image: url('/bg.jpg');
+  background-size:100% 100%;
 `
 
 const WalletConnect = styled.div`
