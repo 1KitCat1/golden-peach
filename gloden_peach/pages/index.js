@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { useWeb3 } from '@3rdweb/hooks'
 import Dashboard from './dashboard';
+import Image from 'next/image'
+import PeachLogo from '../crypto_assets/peach1.png'
 
 export default function Home() {
   const { address, connectWallet} = useWeb3();
@@ -11,6 +13,9 @@ export default function Home() {
       <Dashboard address={address} />
     ) : (
       <WalletConnect>
+        <Logo>
+          <Image src={PeachLogo} alt='Golden Peach Logo' />
+        </Logo>
         <Button onClick={() => connectWallet('injected')}>
           Connect Wallet
         </Button>
@@ -37,6 +42,7 @@ const WalletConnect = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
   align-items: center;
 `
 
@@ -44,6 +50,7 @@ const Button = styled.div`
   /* flex: 0; */
   border: 1px solid #282b2f;
   padding: 0.8rem;
+  margin-top: 50px;
   font-size: 1.3rem;
   font-weight: 500;
   border-radius: 0.4rem;
@@ -60,4 +67,9 @@ const Details = styled.div`
   margin-top: 1rem;
   font-weight: 600;
   color: #d3c8c5;
+`
+
+const Logo = styled.div`
+  width: 300px;
+  // margin: 50px 0;
 `
