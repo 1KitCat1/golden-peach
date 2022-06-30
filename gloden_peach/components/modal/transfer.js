@@ -35,17 +35,50 @@ const TransferModal = ({
                 justifyContent: 'center',
                 alignItems: 'center',
                 fontSize: '1.5rem',
+                flexDirection: 'column',
             }}>
-                        <TailSpin color="#f6da00" height={40} width={40} />
                         <h4 style={{margin: '25px'}}>Transferring...</h4>
+                        <TailSpin color="#f6da00" height={40} width={40} />
+                        
                     </div>
             )
         }
         else if (action == "sent") {
-            return <h2 style={{color: 'green'}}>Transfer complete!</h2>
+            return (
+                <div
+                style={{
+                    width: '100%',
+                    height: '100%',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    fontSize: '2rem',
+                    fontWeight: '600',
+                    color: '#27ad75',
+                    }}
+                >
+                    Transfer complete
+                </div>
+                
+            )
         }
         else if (action == "receive") {
-            return <h2>HI</h2>
+            return (
+                <div
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  fontSize: '2rem',
+                  fontWeight: '600',
+                  color: '#27ad75',
+                }}
+              >
+                Transfer complete
+              </div>
+            )
         }
         else if (action == "select") {
             return <CoinSelector
