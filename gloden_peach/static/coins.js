@@ -12,6 +12,7 @@ export const coins = [
     priceUsd: 28504.12,
     change: -4.74,
     allocation: 41.89,
+    contractAddress: '0x3De909Ba4E54F36a15A7b6ec3DD80507326d80C3',
   },
   {
     name: 'Ethereum',
@@ -22,6 +23,7 @@ export const coins = [
     priceUsd: 1534.31,
     change: 6.24,
     allocation: 17.89,
+    contractAddress: '0x36Ead9f29178f987C9acce9104Ec16bDf0257f67',
   },
   {
     name: 'NEAR Protocol',
@@ -32,5 +34,6 @@ export const coins = [
     priceUsd: 4.11,
     change: -5.24,
     allocation: 17.89,
+    contractAddress: '0xafDCf78345C669cB477Aab4bB9f064a5660b560D',
   },
 ]
