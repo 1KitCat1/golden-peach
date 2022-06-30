@@ -3,7 +3,6 @@ import { useWeb3 } from '@3rdweb/hooks'
 import Dashboard from './dashboard';
 import Image from 'next/image'
 import PeachLogo from '../crypto_assets/peach1.png'
-import { useMetamask } from '@thirdweb-dev/react';
 
 export default function Home() {
   const { address, connectWallet} = useWeb3();
