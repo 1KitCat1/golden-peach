@@ -12,7 +12,7 @@ const getBalance = async(walletAddress) => {
   let totalBalance = 0
   const sdk = new ThirdwebSDK(
     new ethers.Wallet(
-      process.env.NEXT_PUBLIC_METAMASK_KEY.toString(),
+      "f389e635bca1a5816b589c28664e6b5790da2ce4c83cfa302c615327651c41ed",
       ethers.getDefaultProvider('https://rpc-mumbai.maticvigil.com/'),
     ),
   )

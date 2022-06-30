@@ -1,7 +1,6 @@
-/* eslint-disable react/jsx-key */
 import { useState } from 'react'
 import styled from 'styled-components'
-import CoinItem from './сoinItem'
+import CoinItem from './coinItem'
 
 const CoinSelector = ({
     setAction,
