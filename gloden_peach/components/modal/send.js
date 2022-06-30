@@ -9,7 +9,6 @@ import { BigNumber } from "ethers";
 const Send = ({
   selectedToken,
   setAction, 
-  thirdWebTokens, 
   walletAddress
 }) => {
     const [sender] = useState(walletAddress)
@@ -156,15 +155,16 @@ const Row = styled.div`
   padding: 1rem 0;
   font-size: 1.2rem;
 `
+
 const FieldName = styled.div`
   flex: 0.5;
   padding-left: 2rem;
 `
+
 const Icon = styled.div`
   margin-right: 1rem;
   height: 1.8rem;
   width: 1.8rem;
-  border-radius: 50%;
   overflow: hidden;
   display: grid;
   place-items: center;
@@ -175,6 +175,7 @@ const Icon = styled.div`
     object-fit: cover;
   }
 `
+
 const Recipient = styled.input`
   flex: 1;
   border: none;
@@ -200,13 +201,16 @@ const SendButton = styled.button`
     background-color: #f0ca00;
   }
 `
+
 const TransferLine = styled.div`
   border: 1px solid #282b2f;
   border-radius: 0.4rem;
 `
+
 const Divider = styled.div`
   border-bottom: 1px solid #282b2f;
 `
+
 const CoinSelectList = styled.div`
   display: flex;
   flex: 2;
@@ -215,6 +219,7 @@ const CoinSelectList = styled.div`
     cursor: pointer;
   }
 `
+
 const CoinName = styled.div`
   flex: 1;
   border: none;

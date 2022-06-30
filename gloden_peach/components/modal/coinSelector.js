@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import styled from 'styled-components'
-// import CoinItem from './CoinItem'
+import CoinItem from './CoinItem'
 
 const CoinSelector = ({
     setAction,
@@ -16,16 +16,14 @@ const CoinSelector = ({
         <Title>Select asset</Title>
         <CoinList>
           {coins.map(token => (
-            <h1>{token.name}</h1>
-            // <CoinItem
-            //   key={token.name}
-            //   token={token}
-            //   sender={sender}
-            //   selectedToken={selectedToken}
-            //   setAction={setAction}
-            //   setSelectedToken={setSelectedToken}
-            //   sanityTokens={coins}
-            // />
+            <CoinItem
+              token={token}
+              sender={sender}
+              setAction={setAction}
+              selectedToken={selectedToken}
+              setSelectedToken={setSelectedToken}
+              coins={coins}
+            />
           ))}
         </CoinList>
       </Wrapper>
