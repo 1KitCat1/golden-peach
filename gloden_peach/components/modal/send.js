@@ -4,6 +4,7 @@ import { FaWallet } from "react-icons/fa"
 import Image from 'next/image'
 import { ThirdwebSDK } from '@3rdweb/sdk'
 import { ethers } from 'ethers'
+import { BigNumber } from "ethers";
 
 const Send = ({
   selectedToken,
@@ -42,7 +43,7 @@ const Send = ({
         setAction('transferring')
         const result = await currentToken.transfer(
           recipient,
-          amount.toString().concat('000000000000000000'),
+          BigNumber.from(amount).mul(BigNumber.from(10).pow(18)),
         )
         console.log(result)
         setAction('transferred')
