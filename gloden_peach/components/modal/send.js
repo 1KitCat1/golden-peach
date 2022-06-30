@@ -35,7 +35,7 @@ const Send = ({
       }
     }, [currentToken])
 
-    const sendCrypto = async () => {
+    async function sendCrypto() {
       console.log('sending crypto')
   
       if (currentToken && amount && recipient) {
@@ -90,7 +90,7 @@ const Send = ({
             </Row>
         </TransferLine>
         <Row>
-            <SendButton onClick={sendCrypto()}>Send</SendButton>
+            <SendButton onClick={() => {sendCrypto()}}>Send</SendButton>
         </Row>
         <Row>
           <BalanceTitle>{selectedToken.sign} Balance</BalanceTitle>
