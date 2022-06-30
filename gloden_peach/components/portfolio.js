@@ -1,12 +1,54 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsThreeDotsVertical } from 'react-icons/bs'
 import styled from 'styled-components'
 import { coins } from '../static/coins'
 import Coin from './coin'
 import BalanceChart from './balance'
 import News from './newsbar'
+import { ThirdwebSDK } from '@3rdweb/sdk'
+import { ethers } from 'ethers'
 
-const Portfolio = () => {
+const getBalance = async(walletAddress) => {
+  let totalBalance = 0
+  const sdk = new ThirdwebSDK(
+    new ethers.Wallet(
+      process.env.NEXT_PUBLIC_METAMASK_KEY.toString(),
+      ethers.getDefaultProvider('https://rpc-mumbai.maticvigil.com/'),
+    ),
+  )
+  for(let i = 0; i < coins.length; i += 1){
+    const currentToken = sdk.getTokenModule(coins[i].contractAddress)
+    const currentBal = currentToken.balanceOf(walletAddress).displayValue;
+    // console.log(currentBal, coins[i].name)
+    totalBalance += parseInt(currentBal) * coins[i].priceUsd
+  }
+  return totalBalance
+}
+
+const Portfolio = (walletAddress) => {
+  const [address] = useState(walletAddress)
+  const [balance, setBalance] = useState('Fetching...')
+  // setBalance(getBalance())
+  
+  useEffect(() => {
+    const getBalance = async () => {
+      let balance = 0;
+      const sdk = new ThirdwebSDK(
+        new ethers.Wallet(
+          process.env.NEXT_PUBLIC_METAMASK_KEY.toString(),
+          ethers.getDefaultProvider('https://rpc-mumbai.maticvigil.com/'),
+        ),
+      )
+      for(let i = 0; i < coins.length; i += 1){
+        const currentToken = sdk.getTokenModule(coins[i].contractAddress)
+        const currentBal = await currentToken.balanceOf(address.walletAddress.walletAddress);
+        console.log(currentBal, coins[i].name)
+        balance += parseInt(currentBal.displayValue) * coins[i].priceUsd
+      }
+      setBalance("$" + balance)
+    }
+    getBalance();
+  })
     return ( 
     <Wrapper>
       <Content>
@@ -15,8 +57,7 @@ const Portfolio = () => {
             <Balance>
               <BalanceTitle>My Balance</BalanceTitle>
               <BalanceValue>
-                {/* {'$'}{walletBalance.toLocaleString()} */}
-                $55.234,78
+                {balance}
               </BalanceValue>
             </Balance>
           </div>
