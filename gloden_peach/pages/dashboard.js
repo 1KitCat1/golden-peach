@@ -11,6 +11,7 @@ import { ThirdwebSDK } from '@3rdweb/sdk'
 import Pay from '../components/routingpages/pay'
 import Trade from '../components/routingpages/trade'
 import { coins } from '../static/coins'
+import PriceUpdate from "../components/logic/priceUpdate";
 
 const getContent = (router, address) => {
     if(router.query.page == 'invite'){
@@ -28,7 +29,7 @@ const getContent = (router, address) => {
 }
 
 const Dashboard = ({address}) => {
-    
+    PriceUpdate();
 
     const router = useRouter()
     return (
