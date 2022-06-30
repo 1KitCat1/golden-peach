@@ -45,7 +45,7 @@ const Portfolio = (walletAddress) => {
         console.log(currentBal, coins[i].name)
         balance += parseInt(currentBal.displayValue) * coins[i].priceUsd
       }
-      setBalance("$" + balance)
+      setBalance("$" + balance.toFixed(2))
     }
     getBalance();
   })
