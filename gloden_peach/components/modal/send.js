@@ -82,7 +82,7 @@ const Send = ({
             <Divider />
             <Row>
                 <FieldName>Token</FieldName>
-                <CoinSelectList>
+                <CoinSelectList onClick={() => setAction('select')}>
                     <Icon>
                         <Image src={selectedToken.logo} alt={""}></Image>
                     </Icon>
