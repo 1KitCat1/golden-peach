@@ -82,7 +82,6 @@ const Icon = styled.div`
   margin-right: 1rem;
   height: 1.8rem;
   width: 1.8rem;
-  border-radius: 50%;
   overflow: hidden;
   display: grid;
   place-items: center;
