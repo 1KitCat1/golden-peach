@@ -26,7 +26,7 @@ const Send = ({
                 value={amount}
                 onChange={e => setAmount(e.target.value)}
               />
-              <span style={{ color: '#f6da00' }}>ETH</span>
+              <span style={{ color: '#f6da00' }}>{selectedToken.sign}</span>
             </FlexInputContainer>
         </Amount>
         <TransferLine>
@@ -54,8 +54,8 @@ const Send = ({
             <SendButton>Send</SendButton>
         </Row>
         <Row>
-          <BalanceTitle>ETH Balance</BalanceTitle>
-          <Balance>0.7999 ETH</Balance>
+          <BalanceTitle>{selectedToken.sign} Balance</BalanceTitle>
+          <Balance>0.7999 {selectedToken.sign}</Balance>
         </Row>
     </Wrapper>
     )
