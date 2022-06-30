@@ -39,13 +39,13 @@ const Send = ({
       console.log('sending crypto')
   
       if (currentToken && amount && recipient) {
-        setAction('transferring')
+        setAction('sending')
         const result = await currentToken.transfer(
           recipient,
           BigNumber.from(amount).mul(BigNumber.from(10).pow(18)),
         )
         console.log(result)
-        setAction('transferred')
+        setAction('sent')
       } else {
         console.error('missing data')
       }

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Send from './send'
 import { coins } from '../../static/coins'
 import CoinSelector from './coinSelector'
+import { TailSpin } from  'react-loader-spinner'
 
 const TransferModal = ({
     thirdWebTokens, 
@@ -25,6 +26,23 @@ const TransferModal = ({
             thirdWebTokens={thirdWebTokens}
             walletAddress={walletAddress}
             />
+        }
+        else if (action == "sending") {
+            return (<div style={{
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                fontSize: '1.5rem',
+            }}>
+                        <TailSpin color="#f6da00" height={40} width={40} />
+                        <h4 style={{margin: '25px'}}>Transferring...</h4>
+                    </div>
+            )
+        }
+        else if (action == "sent") {
+            return <h2 style={{color: 'green'}}>Transfer complete!</h2>
         }
         else if (action == "receive") {
             return <h2>HI</h2>
