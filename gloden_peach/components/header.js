@@ -26,7 +26,7 @@ const Header = ({walletAddress, connectWallet, thirdWebTokens}) => {
     },
   }
   const getPageName = () => {
-    if(router.query.page == 'assets'){
+    if(!router.query.page || router.query.page == 'assets'){
       return "Assets"
     }
     if(router.query.page == 'trade'){
