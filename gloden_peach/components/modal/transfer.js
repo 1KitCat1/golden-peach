@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Send from './send'
 import { coins } from '../../static/coins'
+import CoinSelector from './coinSelector'
 
 const TransferModal = ({
     thirdWebTokens, 
@@ -23,6 +24,18 @@ const TransferModal = ({
             setAction={setAction}
             thirdWebTokens={thirdWebTokens}
             walletAddress={walletAddress}
+            />
+        }
+        else if (action == "receive") {
+            return <h2>HI</h2>
+        }
+        else if (action == "select") {
+            return <CoinSelector
+            setAction={setAction}
+            selectedToken={selectedToken}
+            setSelectedToken={setSelectedToken}
+            walletAddress={walletAddress}
+            coins={coins}
             />
         }
     }
