@@ -3,13 +3,25 @@ import Header from '../components/header'
 import styled from 'styled-components'
 import Main from '../components/main'
 import Sidebar from '../components/sidebar'
-import InviteFriends from '../components/inviteFriends'
+import InviteFriends from '../components/routingpages/inviteFriends'
+import Notification from '../components/routingpages/notification'
+import ForYou from '../components/routingpages/foryou'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import Pay from '../components/routingpages/pay'
+import Trade from '../components/routingpages/trade'
 
 const getContent = (router, address) => {
     if(router.query.page == 'invite'){
         return <InviteFriends walletAddress={address}/>
+    } else if(router.query.page == 'foryou'){
+        return <ForYou/>
+    } else if(router.query.page == 'notification'){
+        return <Notification/>
+    } else if(router.query.page == 'pay'){
+        return <Pay/>
+    } else if(router.query.page == 'trade'){
+        return <Trade/>
     }
     return <Main/>
 }
