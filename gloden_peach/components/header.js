@@ -39,7 +39,7 @@ const Header = ({walletAddress, connectWallet, thirdWebTokens}) => {
       return "Invite Friends"
     }
     if(router.query.page == 'notification'){
-      return "Notification"
+      return "Notifications"
     }
     if(router.query.page == 'foryou'){
       return "For You"
