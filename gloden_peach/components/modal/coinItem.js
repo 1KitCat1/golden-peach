@@ -2,35 +2,35 @@ import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { FaCheck } from 'react-icons/fa'
 import Image from 'next/image'
+import { ethers } from 'ethers'
+import { ThirdwebSDK } from '@3rdweb/sdk'
 
 const CoinItem = ({
     token,
-    sender,
     setAction,
     selectedToken,
     setSelectedToken,
-    coins,
+    walletAddress,
   }) => {
-    // const [balance, setBalance] = useState('Fetching...')
-  
-    // useEffect(() => {
-    //   const getBalance = async () => {
-    //     let activeTwToken
-  
-    //     twTokens.map(twToken => {
-    //       if (twToken.address === token.contractAddress) {
-    //         activeTwToken = twToken
-    //       }
-    //     })
-  
-    //     const balance = await activeTwToken.balanceOf(sender)
-  
-    //     return setBalance(balance.displayValue.split('.')[0])
-    //   }
+    const [balance, setBalance] = useState('Fetching...')
 
-    //   getBalance()
-    // }, [])
-  
+    const sdk = new ThirdwebSDK(
+        new ethers.Wallet(
+          process.env.NEXT_PUBLIC_METAMASK_KEY.toString(),
+          ethers.getDefaultProvider('https://rpc-mumbai.maticvigil.com/'),
+        ),
+    )
+
+    useEffect(() => {
+        const getBalance = async () => {
+          const balance = await sdk.getTokenModule(token.contractAddress).balanceOf(walletAddress)
+          setBalance(balance.displayValue)
+        }
+
+        getBalance()
+        
+      }, [])
+    
     return (
       <Wrapper
         style={{
@@ -51,7 +51,7 @@ const CoinItem = ({
           </NameDetails>
         </Main>
         <Balance>
-          77.02 {token.sign}
+           {balance} {token.sign}
         </Balance>
         <IsSelected>
           {Boolean(selectedToken.contractAddress == token.contractAddress) && (

@@ -18,11 +18,10 @@ const CoinSelector = ({
           {coins.map(token => (
             <CoinItem
               token={token}
-              sender={sender}
               setAction={setAction}
               selectedToken={selectedToken}
               setSelectedToken={setSelectedToken}
-              coins={coins}
+              walletAddress={walletAddress}
             />
           ))}
         </CoinList>
