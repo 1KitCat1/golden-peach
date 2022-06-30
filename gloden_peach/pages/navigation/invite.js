@@ -6,6 +6,8 @@ import { useRouter } from 'next/router'
 import InviteFriends from '../../components/routingpages/inviteFriends'
 
 const Invite = () => {
+    const [copied, setCopied] = useState(false)
+
     const router = useRouter();
     const data = router.query;
     return (

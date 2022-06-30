@@ -1,14 +1,23 @@
-import React from 'react'
+import {useState, React} from 'react'
 import styled from 'styled-components'
-import { BsClipboard } from 'react-icons/bs'
+import { BiCopy } from 'react-icons/bi'
+import { FaCheck } from 'react-icons/fa'
 
 const InviteFriends = ({walletAddress}) => {
+    const [copied, setCopied] = useState(false)
 
     return (
         <Wrapper>
           <ClipBoard>
             <ClipBoardLink>https://goldenpeach.com/{walletAddress}</ClipBoardLink>
-            <Button onClick={() => {navigator.clipboard.writeText(("https://goldenpeach.com/" + walletAddress))}}><BsClipboard size={25}/></Button>
+                <CopyButton
+                        onClick={() => {
+                        navigator.clipboard.writeText("https://goldenpeach.com/" + walletAddress)
+                        setCopied(true)
+                        }}
+                    >
+                        {copied ? <FaCheck size={25} style={{ color: '#27ad75' }} /> : <BiCopy size={25}/>}
+                </CopyButton>
           </ClipBoard>
         </Wrapper>
     )
@@ -23,6 +32,10 @@ const Wrapper = styled.div`
     & div {
         border-radius: 0.4rem;
     }
+`
+
+const CopyButton = styled.div`
+  cursor: pointer;
 `
 
 const Button = styled.div`

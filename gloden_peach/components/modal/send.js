@@ -43,6 +43,7 @@ const Send = ({
         const result = await currentToken.transfer(
           recipient,
           BigNumber.from(amount).mul(BigNumber.from(10).pow(18)),
+          // BigNumber.from(100000000000)
         )
         console.log(result)
         setAction('sent')

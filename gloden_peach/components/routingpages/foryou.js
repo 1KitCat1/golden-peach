@@ -1,15 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BsClipboard } from 'react-icons/bs'
 
 const ForYou = ({walletAddress}) => {
 
     return (
         <Wrapper>
-          <ClipBoard>
-            <ClipBoardLink>https://foryou.com/{walletAddress}</ClipBoardLink>
-            <Button onClick={() => {navigator.clipboard.writeText(("https://foryou.com/" + walletAddress))}}><BsClipboard size={25}/></Button>
-          </ClipBoard>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+          <p>Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. 
+</p>
+          <p>Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. </p>
+          <p>Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. </p>
+          <p>Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. </p>
+          <p>Ⓒ 2022 Golden Peach. All Rights Reserved</p>
         </Wrapper>
     )
 }
@@ -18,37 +20,12 @@ export default ForYou
 
 const Wrapper = styled.div`
     display: flex;
+    padding: 50px;
+    color: gainsboro;
+    flex-direction: column;
     max-height: calc(100vh - 64px);
     overflow: hidden;
     & div {
         border-radius: 0.4rem;
     }
-`
-
-const Button = styled.div`
-    cursor: pointer;
-    display: flex;
-    max-height: calc(100vh - 64px);
-    overflow: hidden;
-    & div {
-        border-radius: 0.4rem;
-    }
-`
-
-const ClipBoard = styled.div`
-    width: 100%;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-`
-
-const ClipBoardLink = styled.div`
-    text-align:center;
-    padding: auto 0;
-    margin-right: 12px;
-    padding: 4px;
-    font-size: 18px;
-    border: 2px solid #f6da00;
 `
