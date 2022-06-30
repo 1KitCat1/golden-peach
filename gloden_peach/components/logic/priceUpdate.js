@@ -1,4 +1,6 @@
 import { coins } from "../../static/coins"
+import XMLHttpRequest from "xhr2";
+
 const PriceUpdate = () => {
     for(let i = 0; i < coins.length; i += 1){
         if(!coins[i].name) continue;
