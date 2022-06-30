@@ -53,10 +53,16 @@ const Header = ({walletAddress, connectWallet, thirdWebTokens}) => {
             </Head>
             <Title>{getPageName()}</Title>
             <FlexContainer>
+              {walletAddress ? (
                 <WalletLink title={walletAddress}>
                   <WalletLinkTitle>Wallet Connected</WalletLinkTitle>
                   <WalletAddress>{walletAddress.slice(0, 7)}...{walletAddress.slice(35)}</WalletAddress>
                 </WalletLink>
+              ) : (
+                  <Button onClick={() => connectWallet('injected')}>
+                    Connect Wallet
+                  </Button>
+              )}
                 <Link href={{query: {transfer: 1, page: router.query.page}}}>
                   <Button style={{backgroundColor: '#f6da00', color: '#000'}}>Send | Receive</Button>
                 </Link>
