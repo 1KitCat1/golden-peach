@@ -1,15 +1,42 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BsClipboard } from 'react-icons/bs'
+import { coins } from '../../static/coins'
+import CoinNotification from '../coinNotification'
 
-const Notification = ({walletAddress}) => {
 
+const Notification = ({}) => {
     return (
         <Wrapper>
-          <ClipBoard>
-            <ClipBoardLink>https://notification.com/{walletAddress}</ClipBoardLink>
-            <Button onClick={() => {navigator.clipboard.writeText(("https://notification.com/" + walletAddress))}}><BsClipboard size={25}/></Button>
-          </ClipBoard>
+            <PortfolioTable>
+            <Table>
+                <div>
+                    {coins.map(coin => (
+                        <div key={coin.name}>
+                            <CoinNotification coin={coin} />
+                            <Divider />
+                        </div>
+                    ))}    
+                    {coins.map(coin => (
+                        <div key={coin.name}>
+                            <CoinNotification coin={coin} />
+                            <Divider />
+                        </div>
+                    ))}  
+                    {coins.map(coin => (
+                        <div key={coin.name}>
+                            <CoinNotification coin={coin} />
+                            <Divider />
+                        </div>
+                    ))} 
+                    {coins.map(coin => (
+                        <div key={coin.name}>
+                            <CoinNotification coin={coin} />
+                            <Divider />
+                        </div>
+                    ))}   
+                </div>
+            </Table>
+        </PortfolioTable>
         </Wrapper>
     )
 }
@@ -17,38 +44,42 @@ const Notification = ({walletAddress}) => {
 export default Notification
 
 const Wrapper = styled.div`
-    display: flex;
-    max-height: calc(100vh - 64px);
-    overflow: hidden;
-    & div {
-        border-radius: 0.4rem;
-    }
-`
-
-const Button = styled.div`
-    cursor: pointer;
-    display: flex;
-    max-height: calc(100vh - 64px);
-    overflow: hidden;
-    & div {
-        border-radius: 0.4rem;
-    }
-`
-
-const ClipBoard = styled.div`
     width: 100%;
-    height: 400px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    
+    max-height: calc(100vh - 64px);
+    overflow: hidden;
+    overflow-y: scroll;
+    :: -webkit-scrollbar {
+    display: none;
+    }
+    & div {
+    border-radius: 0.4rem;
+    }
 `
 
-const ClipBoardLink = styled.div`
-    text-align:center;
-    padding: auto 0;
-    margin-right: 12px;
-    padding: 4px;
-    font-size: 18px;
-    border: 2px solid #f6da00;
+const PortfolioTable = styled.div`
+    width: 100%;
+    // margin-top: 1rem;
+    border: 1px solid #282b2f;
+`
+
+const Table = styled.div`
+    width: 100%;
+`
+
+const TableRow = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    & > th {
+        text-align: left;
+    }
+`
+
+const TableItem = styled.div`
+    padding: 1rem 2rem;
+`
+
+const Divider = styled.div`
+    border-bottom: 1px solid #282b2f;
 `
