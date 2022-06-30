@@ -25,13 +25,33 @@ const Header = ({walletAddress, connectWallet, thirdWebTokens}) => {
       backgroundColor: 'rgba(26, 26, 26, 0.7)',
     },
   }
-
+  const getPageName = () => {
+    if(router.query.page == 'assets'){
+      return "Assets"
+    }
+    if(router.query.page == 'trade'){
+      return "Trade"
+    } 
+    if(router.query.page == 'pay'){
+      return "Pay"
+    }
+    if(router.query.page == 'invite'){
+      return "Invite Friends"
+    }
+    if(router.query.page == 'notification'){
+      return "Notification"
+    }
+    if(router.query.page == 'foryou'){
+      return "For You"
+    }
+    return router.query.page;
+  }
     return (
         <Wrapper>
             <Head>
               <title>Golden Peach</title>
             </Head>
-            <Title>Assets</Title>
+            <Title>{getPageName()}</Title>
             <FlexContainer>
                 <WalletLink title={walletAddress}>
                   <WalletLinkTitle>Wallet Connected</WalletLinkTitle>
