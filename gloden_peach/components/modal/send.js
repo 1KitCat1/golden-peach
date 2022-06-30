@@ -11,21 +11,30 @@ const Send = ({
   thirdWebTokens, 
   walletAddress
 }) => {
+    const [sender] = useState(walletAddress)
+    const [balance, setBalance] = useState('Fetching...')
     const [amount, setAmount] = useState()
     const [recipientAddress, setRecipientAddress] = useState('')
     const [activeWebThreeToken, setActiveWebThreeToken] = useState()
-    // let wallet = new ethers.Wallet(
-    //   process.env.NEXT_PUBLIC_METAMASK_KEY,
-    //   ethers.getDefaultProvider('https://rpc-mumbai.maticvigil.com'),
-    // )
-    console.log(ethers, 'agasga');
+
     const sdk = new ThirdwebSDK(
       new ethers.Wallet(
-        process.env.NEXT_PUBLIC_METAMASK_KEY,
-        ethers.getDefaultProvider('https://rinkeby.infura.io/v3/'),
+        process.env.NEXT_PUBLIC_METAMASK_KEY.toString(),
+        ethers.getDefaultProvider('https://rpc-mumbai.maticvigil.com/'),
       ),
     )
     const currentToken = sdk.getTokenModule(selectedToken.contractAddress)
+
+    useEffect(() => {
+      const getBalance = async () => {
+        const balance = await currentToken.balanceOf(sender)
+        setBalance(balance.displayValue)
+      }
+  
+      if (currentToken) {
+        getBalance()
+      }
+    }, [currentToken])
 
     const sendCrypto = async () => {
       console.log('sending crypto')
@@ -41,6 +50,7 @@ const Send = ({
         console.error('missing data')
       }
     }
+    console.log(balance, 'bal');
 
     useEffect(() => {console.log(selectedToken)}, [])
     
@@ -86,7 +96,7 @@ const Send = ({
         </Row>
         <Row>
           <BalanceTitle>{selectedToken.sign} Balance</BalanceTitle>
-          <Balance>0.7999 {selectedToken.sign}</Balance>
+          <Balance>{balance} {selectedToken.sign}</Balance>
         </Row>
     </Wrapper>
     )
