@@ -21,7 +21,7 @@ export const navItems = [
     link: 'pay',
   },
   {
-    title: 'For You',
+    title: 'About us',
     icon: <MdWeb />,
     link: 'foryou',
   },

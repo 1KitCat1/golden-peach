@@ -42,7 +42,7 @@ const Header = ({walletAddress, connectWallet, thirdWebTokens}) => {
       return "Notifications"
     }
     if(router.query.page == 'foryou'){
-      return "For You"
+      return "About us"
     }
     return router.query.page;
   }
