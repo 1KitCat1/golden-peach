@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled  from "styled-components";
 import { FaWallet } from "react-icons/fa"
-import Image from "next/image"
-import PeachLogo from '../../crypto_assets/peach1.png'
+import Image from 'next/image'
 
-const Send = () => {
+const Send = ({
+  selectedToken,
+  setAction, 
+  thirdWebTokens, 
+  walletAddress
+}) => {
     const [amount, setAmount] = useState()
     const [recipientAddress, setRecipientAddress] = useState()
-    const imgageA = '../../crypto_assets/peach1.png'
+    useEffect(() => {console.log(selectedToken);}, [])
+    
     return (
     <Wrapper>
         <Warning style={{opacity: amount && '0'}}>
-            Enter amount
+          Enter amount
         </Warning> 
         <Amount> 
             <FlexInputContainer>
@@ -39,14 +44,18 @@ const Send = () => {
                 <FieldName>Token</FieldName>
                 <CoinSelectList>
                     <Icon>
-                        <img src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNUY--qh08i0znO3w4uwOuwIr2f1PqVFpTuA&usqp=CAU'} alt={""}></img>
+                        <Image src={selectedToken.logo} alt={""}></Image>
                     </Icon>
-                    <CoinName>Bitcoin</CoinName>
+                    <CoinName>{selectedToken.name}</CoinName>
                 </CoinSelectList>
             </Row>
         </TransferLine>
         <Row>
             <SendButton>Send</SendButton>
+        </Row>
+        <Row>
+          <BalanceTitle>ETH Balance</BalanceTitle>
+          <Balance>0.7999 ETH</Balance>
         </Row>
     </Wrapper>
     )
@@ -177,3 +186,7 @@ const CoinName = styled.div`
   text-wrap: wrap;
   margin-right: 0.5rem;
 `
+
+const BalanceTitle = styled.div``
+
+const Balance = styled.div``

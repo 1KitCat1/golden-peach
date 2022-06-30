@@ -7,7 +7,7 @@ import Head from 'next/head'
 
 Modal.setAppElement('#__next')
 
-const Header = ({walletAddress, connectWallet}) => {
+const Header = ({walletAddress, connectWallet, thirdWebTokens}) => {
   const router = useRouter()
 
   const customStyles = {
@@ -37,10 +37,10 @@ const Header = ({walletAddress, connectWallet}) => {
                   <WalletLinkTitle>Wallet Connected</WalletLinkTitle>
                   <WalletAddress>{walletAddress.slice(0, 7)}...{walletAddress.slice(35)}</WalletAddress>
                 </WalletLink>
-                <Link href={'/?transfer=1'}>
+                <Link href={{query: {transfer: 1, page: router.query.page}}}>
                   <Button style={{backgroundColor: '#f6da00', color: '#000'}}>Send | Receive</Button>
                 </Link>
-                <Link href={{query: '/?transfer=1'}}>
+                <Link href={{query: {transfer: 1, page: router.query.page}}}>
                   <Button>Buy | Sell</Button>
                 </Link>
             </FlexContainer>
@@ -49,7 +49,10 @@ const Header = ({walletAddress, connectWallet}) => {
             onRequestClose={() => router.push('/')}
             style={customStyles}
             >
-              <TransferModal/>
+              <TransferModal 
+              thirdWebTokens={thirdWebTokens}
+              walletAddress={walletAddress}
+              />
             </Modal>
         </Wrapper>
         )

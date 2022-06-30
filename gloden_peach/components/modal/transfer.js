@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Send from './send'
+import { coins } from '../../static/coins'
 
-
-const TransferModal = () => {
+const TransferModal = ({
+    thirdWebTokens, 
+    walletAddress
+}) => {
     const [action, setAction] = useState('send')
+    const [selectedToken, setSelectedToken] = useState(coins[0])
 
     const selectedButtonStyle = {
         color: "#f6da00"
@@ -14,7 +18,12 @@ const TransferModal = () => {
     }
     const selectedModal = () => {
         if(action == "send"){
-            return <Send/>
+            return <Send
+            selectedToken={selectedToken}
+            setAction={setAction}
+            thirdWebTokens={thirdWebTokens}
+            walletAddress={walletAddress}
+            />
         }
     }
     return (
