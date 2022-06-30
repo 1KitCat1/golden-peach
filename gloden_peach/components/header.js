@@ -46,7 +46,7 @@ const Header = ({walletAddress, connectWallet, thirdWebTokens}) => {
             </FlexContainer>
             <Modal
             isOpen={!!router.query.transfer}
-            onRequestClose={() => router.push('/')}
+            onRequestClose={() => router.push('/?page=' + router.query.page)}
             style={customStyles}
             >
               <TransferModal 
