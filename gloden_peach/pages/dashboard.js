@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import Header from '../components/header'
 import styled from 'styled-components'
 import Main from '../components/main'
@@ -7,9 +7,10 @@ import InviteFriends from '../components/routingpages/inviteFriends'
 import Notification from '../components/routingpages/notification'
 import ForYou from '../components/routingpages/foryou'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
+import { ThirdwebSDK } from '@3rdweb/sdk'
 import Pay from '../components/routingpages/pay'
 import Trade from '../components/routingpages/trade'
+import { coins } from '../static/coins'
 
 const getContent = (router, address) => {
     if(router.query.page == 'invite'){
@@ -27,6 +28,8 @@ const getContent = (router, address) => {
 }
 
 const Dashboard = ({address}) => {
+    
+
     const router = useRouter()
     return (
     <Wrapper>

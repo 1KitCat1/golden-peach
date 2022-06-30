@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled  from "styled-components";
 import { FaWallet } from "react-icons/fa"
 import Image from 'next/image'
+import { ThirdwebSDK } from '@3rdweb/sdk'
+import { ethers } from 'ethers'
 
 const Send = ({
   selectedToken,
@@ -10,8 +12,37 @@ const Send = ({
   walletAddress
 }) => {
     const [amount, setAmount] = useState()
-    const [recipientAddress, setRecipientAddress] = useState()
-    useEffect(() => {console.log(selectedToken);}, [])
+    const [recipientAddress, setRecipientAddress] = useState('')
+    const [activeWebThreeToken, setActiveWebThreeToken] = useState()
+    // let wallet = new ethers.Wallet(
+    //   process.env.NEXT_PUBLIC_METAMASK_KEY,
+    //   ethers.getDefaultProvider('https://rpc-mumbai.maticvigil.com'),
+    // )
+    console.log(ethers, 'agasga');
+    const sdk = new ThirdwebSDK(
+      new ethers.Wallet(
+        process.env.NEXT_PUBLIC_METAMASK_KEY,
+        ethers.getDefaultProvider('https://rinkeby.infura.io/v3/'),
+      ),
+    )
+    const currentToken = sdk.getTokenModule(selectedToken.contractAddress)
+
+    const sendCrypto = async () => {
+      console.log('sending crypto')
+      if (currentToken && amount && recipient) {
+        setAction('transferring')
+        const result = await currentToken.transfer(
+          recipient,
+          amount.toString().concat('000000000000000000'),
+        )
+        console.log(result)
+        setAction('transferred')
+      } else {
+        console.error('missing data')
+      }
+    }
+
+    useEffect(() => {console.log(selectedToken)}, [])
     
     return (
     <Wrapper>
