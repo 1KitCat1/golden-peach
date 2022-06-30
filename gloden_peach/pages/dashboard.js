@@ -25,7 +25,7 @@ const getContent = (router, address) => {
     } else if(router.query.page == 'trade'){
         return <Trade/>
     }
-    return <Main/>
+    return <Main walletAddress={address}/>
 }
 
 const Dashboard = ({address}) => {
