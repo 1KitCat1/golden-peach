@@ -8,31 +8,31 @@ export const navItems = [
   {
     title: 'Assets',
     icon: <AiOutlinePieChart />,
-    link: '/',
+    link: 'assets',
   },
   {
     title: 'Trade',
     icon: <BiTrendingUp />,
-    link: '',
+    link: 'trade',
   },
   {
     title: 'Pay',
     icon: <RiCoinsLine />,
-    link: '',
+    link: 'pay',
   },
   {
     title: 'For You',
     icon: <MdWeb />,
-    link: '',
+    link: 'foryou',
   },
   {
     title: 'Notifications',
     icon: <RiNotification3Line />,
-    link: '',
+    link: 'notification',
   },
   {
     title: 'Invite Friends',
     icon: <BsPersonPlus />,
-    link: '/navigation/invite',
+    link: 'invite',
   },
 ]

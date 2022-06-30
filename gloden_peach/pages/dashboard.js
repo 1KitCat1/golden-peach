@@ -8,7 +8,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 
 const getContent = (router, address) => {
-    if(router.query.invite){
+    if(router.query.page == 'invite'){
         return <InviteFriends walletAddress={address}/>
     }
     return <Main/>
