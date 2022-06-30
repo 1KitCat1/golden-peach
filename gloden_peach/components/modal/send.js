@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styled  from "styled-components";
 import { FaWallet } from "react-icons/fa"
 import Image from 'next/image'
@@ -13,9 +13,8 @@ const Send = ({
 }) => {
     const [sender] = useState(walletAddress)
     const [balance, setBalance] = useState('Fetching...')
-    const [amount, setAmount] = useState()
-    const [recipientAddress, setRecipientAddress] = useState('')
-    const [activeWebThreeToken, setActiveWebThreeToken] = useState()
+    const [amount, setAmount] = useState('')
+    const [recipient, setRecipient] = useState('')
 
     const sdk = new ThirdwebSDK(
       new ethers.Wallet(
@@ -38,6 +37,7 @@ const Send = ({
 
     const sendCrypto = async () => {
       console.log('sending crypto')
+  
       if (currentToken && amount && recipient) {
         setAction('transferring')
         const result = await currentToken.transfer(
@@ -50,15 +50,9 @@ const Send = ({
         console.error('missing data')
       }
     }
-    console.log(balance, 'bal');
-
-    useEffect(() => {console.log(selectedToken)}, [])
     
     return (
     <Wrapper>
-        <Warning style={{opacity: amount && '0'}}>
-          Enter amount
-        </Warning> 
         <Amount> 
             <FlexInputContainer>
               <FlexInput
@@ -69,15 +63,19 @@ const Send = ({
               />
               <span style={{ color: '#f6da00' }}>{selectedToken.sign}</span>
             </FlexInputContainer>
+          
+        <Warning style={{opacity: amount && '0'}}>
+          Enter amount
+        </Warning> 
         </Amount>
         <TransferLine>
             <Row>
                 <FieldName>To</FieldName>
                 <Icon><FaWallet/></Icon>
-                <RecipientAddress
+                <Recipient
                 placeholder='Address'
-                value={recipientAddress}
-                onChange={val => setRecipientAddress(val.target.value)}
+                value={recipient}
+                onChange={e => setRecipient(e.target.value)}
                 />
             </Row>
             <Divider />
@@ -92,7 +90,7 @@ const Send = ({
             </Row>
         </TransferLine>
         <Row>
-            <SendButton>Send</SendButton>
+            <SendButton onClick={sendCrypto()}>Send</SendButton>
         </Row>
         <Row>
           <BalanceTitle>{selectedToken.sign} Balance</BalanceTitle>
@@ -105,11 +103,10 @@ const Send = ({
 export default Send
 
 const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    flex: 1;
-    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
 `
 const Amount = styled.div`
   flex: 1;
@@ -137,7 +134,7 @@ const FlexInput = styled.input`
   text-align: right;
   max-width: 45%;
   margin-right: 1rem;
-  font-size: 4.5rem;
+  font-size: 4rem;
   color: gainsboro;
   &::-webkit-outer-spin-button,
   ::-webkit-inner-spin-button {
@@ -177,7 +174,7 @@ const Icon = styled.div`
     object-fit: cover;
   }
 `
-const RecipientAddress = styled.input`
+const Recipient = styled.input`
   flex: 1;
   border: none;
   background: none;
