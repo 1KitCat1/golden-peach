@@ -3,10 +3,10 @@ import Portfolio from './portfolio'
 import styled from 'styled-components'
 import News from './newsbar'
 
-const Main = () => {
+const Main = (walletAddress) => {
     return (
         <Wrapper>
-          <Portfolio/>
+          <Portfolio walletAddress={walletAddress}/>
           <News/>
         </Wrapper>
     )

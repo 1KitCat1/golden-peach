@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import { useState } from 'react'
 import styled from 'styled-components'
 import PeachLogo from '../crypto_assets/peach1.png'
@@ -19,8 +20,7 @@ const Sidebar = (walletAddress) => {
       <NavItemsContainer>
         {navItems.map(item => (
           <Link href={{
-            pathname: item.link,
-            query: walletAddress,
+            query: {page: item.link},
             }}>
             <NavItem key={item.title} onClick={() => setActiveIcon(item.title)}>
               <NavIcon style={{ color: item.title === activeIcon && '#f6da00' }}>

@@ -3,10 +3,11 @@ import Modal from 'react-modal'
 import TransferModal from './modal/transfer'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import Head from 'next/head'
 
 Modal.setAppElement('#__next')
 
-const Header = ({walletAddress, connectWallet}) => {
+const Header = ({walletAddress, connectWallet, thirdWebTokens}) => {
   const router = useRouter()
 
   const customStyles = {
@@ -24,28 +25,60 @@ const Header = ({walletAddress, connectWallet}) => {
       backgroundColor: 'rgba(26, 26, 26, 0.7)',
     },
   }
-
+  const getPageName = () => {
+    if(!router.query.page || router.query.page == 'assets'){
+      return "Assets"
+    }
+    if(router.query.page == 'trade'){
+      return "Trade"
+    } 
+    if(router.query.page == 'pay'){
+      return "Pay"
+    }
+    if(router.query.page == 'invite'){
+      return "Invite Friends"
+    }
+    if(router.query.page == 'notification'){
+      return "Notifications"
+    }
+    if(router.query.page == 'foryou'){
+      return "About us"
+    }
+    return router.query.page;
+  }
     return (
         <Wrapper>
-            <Title>Assets</Title>
+            <Head>
+              <title>Golden Peach</title>
+            </Head>
+            <Title>{getPageName()}</Title>
             <FlexContainer>
+              {walletAddress ? (
                 <WalletLink title={walletAddress}>
                   <WalletLinkTitle>Wallet Connected</WalletLinkTitle>
                   <WalletAddress>{walletAddress.slice(0, 7)}...{walletAddress.slice(35)}</WalletAddress>
                 </WalletLink>
-                <Link href={'/?transfer=1'}>
+              ) : (
+                  <Button onClick={() => connectWallet('injected')}>
+                    Connect Wallet
+                  </Button>
+              )}
+                <Link href={{query: {transfer: 1, page: router.query.page}}}>
                   <Button style={{backgroundColor: '#f6da00', color: '#000'}}>Send | Receive</Button>
                 </Link>
-                <Link href={'/?transfer=1'}>
+                <Link href={{query: {transfer: 1, page: router.query.page}}}>
                   <Button>Buy | Sell</Button>
                 </Link>
             </FlexContainer>
             <Modal
             isOpen={!!router.query.transfer}
-            onRequestClose={() => router.push('/')}
+            onRequestClose={() => router.push('/?page=' + router.query.page)}
             style={customStyles}
             >
-              <TransferModal/>
+              <TransferModal 
+              thirdWebTokens={thirdWebTokens}
+              walletAddress={walletAddress}
+              />
             </Modal>
         </Wrapper>
         )
@@ -56,7 +89,7 @@ const Wrapper = styled.div`
   width: calc(100%);
   padding: 1rem 1.5rem;
   border-bottom: 1px solid #282b2f;
-  background-color: #1a1b1d;
+  background-color: #0a0b0d;
   display: flex;
   align-items: center;
 `

@@ -3,9 +3,11 @@ import Header from '../../components/header'
 import styled from 'styled-components'
 import Sidebar from '../../components/sidebar'
 import { useRouter } from 'next/router'
-import InviteFriends from '../../components/inviteFriends'
+import InviteFriends from '../../components/routingpages/inviteFriends'
 
 const Invite = () => {
+    const [copied, setCopied] = useState(false)
+
     const router = useRouter();
     const data = router.query;
     return (
