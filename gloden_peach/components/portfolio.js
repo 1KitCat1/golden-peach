@@ -19,7 +19,10 @@ const getBalance = async(walletAddress) => {
   for(let i = 0; i < coins.length; i += 1){
     const currentToken = sdk.getTokenModule(coins[i].contractAddress)
     const currentBal = currentToken.balanceOf(walletAddress).displayValue;
+    coins[i].balanceCoin = currentBal
     // console.log(currentBal, coins[i].name)
+    const currentTokenBalance = parseInt(currentBal) * coins[i].priceUsd
+    coins[i].balanceUsd = currentTokenBalance
     totalBalance += parseInt(currentBal) * coins[i].priceUsd
   }
   return totalBalance
@@ -84,7 +87,7 @@ const Portfolio = (walletAddress) => {
                 <div>
                     {coins.map(coin => (
                         <div key={coin.name}>
-                            <Coin coin={coin} />
+                            <Coin coin={coin} address={walletAddress}/>
                             {/* <h2>{coin.name}</h2> */}
                             <Divider />
                         </div>
