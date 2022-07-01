@@ -56,58 +56,8 @@ const Wrapper = styled.div`
     height: 100%;
 `
 
-const Button = styled.div`
-    cursor: pointer;
-    display: flex;
-    max-height: calc(100vh - 64px);
-    overflow: hidden;
-    & div {
-        border-radius: 0.4rem;
-    }
-`
-
-const ClipBoard = styled.div`
-    width: 100%;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-`
-
-const ClipBoardLink = styled.div`
-    text-align:center;
-    padding: auto 0;
-    margin-right: 12px;
-    padding: 4px;
-    font-size: 18px;
-    border: 2px solid #f6da00;
-`
-const Content = styled.div`
-  width: 100%;
-  max-width: 98%;
-  padding: 2rem 1rem;
-`
-
-const Chart = styled.div`
-  border: 1px solid #282b2f;
-  padding: 1rem 2rem;
-`
-
-const Balance = styled.div``
-
-const BalanceTitle = styled.div`
-  color: #8a919e;
-  font-size: 0.9rem;
-`
-
-const BalanceValue = styled.div`
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin: 0.5rem 0;
-`
-
 const PortfolioTable = styled.div`
+  width: 98%;
   margin-top: 1rem;
   border: 1px solid #282b2f;
 `
