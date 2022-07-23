@@ -1,2 +1,1 @@
-# golden-peach
-PrP project
+🍑 Web-powered exchange platform 🍑
